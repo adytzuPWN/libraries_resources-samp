@@ -5,7 +5,7 @@ public OnDialogPerformed(playerid, dialog[], response, success) {
 }
 
 exemple: 
-CMD:weapons(playerid, params[]) {
+YCMD:weapons(playerid, params[], help) {
     Dialog_Show(playerid, WeaponMenu, DIALOG_STYLE_LIST, "Weapon Menu", "9mm\nSilenced 9mm\nDesert Eagle\nShotgun\nSawn-off Shotgun\nCombat Shotgun", "Select", "Cancel");
     return 1;
 }
