@@ -1,5 +1,5 @@
 An example:
-#include <a_samp>
+#include <a_samp.inc>
 #include <fly-mode.inc>
 
 public OnPlayerConnect(playerid)
