@@ -1,0 +1,33 @@
+This callback is called before a dialog is shown to a player (using Dialog_Show, that is). Returning 0 under this callback will prevent the dialog from working.
+
+public OnDialogPerformed(playerid, dialog[], response, success) {
+    return 1;
+}
+
+exemple: 
+CMD:weapons(playerid, params[]) {
+    Dialog_Show(playerid, WeaponMenu, DIALOG_STYLE_LIST, "Weapon Menu", "9mm\nSilenced 9mm\nDesert Eagle\nShotgun\nSawn-off Shotgun\nCombat Shotgun", "Select", "Cancel");
+    return 1;
+}
+
+Dialog:WeaponMenu(playerid, response, listitem, inputtext[]) {
+    if (response) {
+        new str[64];
+        format(str, 64, "You have selected the '%s'.", inputtext);
+
+        GivePlayerWeapon(playerid, listitem + 22, 500);
+        SendClientMessage(playerid, -1, str);
+    }
+    return 1;
+}
+
+public OnDialogPerformed(playerid, dialog[], response, success) {
+    if (!strcmp(dialog, "WeaponMenu") && IsPlayerInAnyVehicle(playerid)) {
+        SendClientMessage(playerid, -1, "You must be on-foot to spawn a weapon.");
+        return 0;
+    }
+    return 1;
+}
+
+credits:
+Emmet_ - for easyDialog Southclaws - for sampctl AliLogic - for const correction MichelDev - for fix (open.mp rc2)
