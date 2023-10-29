@@ -1,33 +1,23 @@
 An example:
 #include <a_samp>
-#include <fly>
+#include <fly-mode.inc>
 
-public OnFilterScriptInit()
-{
-	print("=========================================\n");
-	print("Fly include demo FS by Norck");
-	print(" ");
-	print("=========================================\n");
-	return 1;
-}
 public OnPlayerConnect(playerid)
 {
 	InitFly(playerid);
 	return 1;
 }
-public OnPlayerCommandText(playerid, cmdtext[])
+
+YCMD:stopfly(playerid, params[], help)
 {
-	if(!strcmp(cmdtext,"/fly",true))
-	{
-	    StartFly(playerid);
-	    return 1;
-	}
-	if(!strcmp(cmdtext,"/stopfly",true))
-	{
-	    StopFly(playerid);
-	    return 1;
-	}
-	return 0;
+    StopFly(playerid);
+    return 1;
+}
+
+YCMD:flymode(playerid, params[], help)
+{
+    StartFly(playerid);
+    return 1;
 }
 
 And I include everything:
