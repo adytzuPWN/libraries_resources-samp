@@ -16,6 +16,15 @@ stock IsVehSeatTakenv2(vehicleid, seatid)
    }
    return false;
 }
+that's how you can check if it's bikes/planes
+stock isBike(model)
+{
+   switch(model)
+   {
+      case 410: return true;
+   }
+   return false;
+}
 
 
 COMMANDS:
