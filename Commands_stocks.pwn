@@ -6,3 +6,13 @@ stock IsVehSeatTaken(vehicleid, seatid)
    }
    return 0;
 }
+
+stock IsVehSeatTakenv2(vehicleid, seatid)
+{
+   foreach(new playerid : Player)
+   {
+      if(IsPlayerInVehicle(playerid, vehicleid) && GetPlayerVehicleSeat(playerid) == seatid)
+         return true;
+   }
+   return false;
+}
